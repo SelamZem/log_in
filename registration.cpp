@@ -37,7 +37,7 @@ void addStuds() //adds students to the system
 	
 	fstream myFile;
 	 
-	 myFile.open("Student_Data", ios::app);
+	 myFile.open("Student_Data.txt", ios::app);
 	 
 	 if(myFile.is_open())
 	
@@ -54,7 +54,7 @@ void addStuds() //adds students to the system
 		emails();
 		
 		
-		myFile<<student[counter].sEmail<<" "<<student[counter].fName<<" "<<student[counter].Lname<<" "<<student[counter].age<<" "<<student[counter].passwords;
+		myFile<<endl<<student[counter].sEmail<<" "<<student[counter].fName<<" "<<student[counter].Lname<<" "<<student[counter].age<<" "<<student[counter].passwords;
 		myFile.close();	
 	}
 
@@ -134,7 +134,7 @@ void emails()
 	
 	string line;
     fstream read_file;
-    read_file.open("Student_Data", ios::in);
+    read_file.open("Student_Data.txt", ios::in);
 
     while(read_file.eof())
     {
@@ -146,6 +146,8 @@ void emails()
             {
                 break;
             }
+		}
+		
 			if(strcmp(line.c_str(),emailss.c_str())==0)
 			{
 				cout<<"\n\t\t\tThe Email address already exist.Please Enter a valid email address.";
@@ -156,10 +158,11 @@ void emails()
 			{
 				student[counter].sEmail=emailss;
 			}
-        }
+        
   	 }
 
 	read_file.close(); 
 	
+	
+	
 }
-
